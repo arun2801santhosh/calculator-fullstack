@@ -1,0 +1,49 @@
+{
+    "project": {
+        "name": "Dubai Island B Bay Villas",
+        "code": "DHRE001",
+        "contractor": "DUBAI DEVELOPMENT",
+        "start_month": "2026-12",
+        "duration": 20,
+        "report_month": "2026-12"
+    },
+    "budget": [
+        {
+            "id": 1,
+            "description": "Project Staff",
+            "tender_budget": 17619670,
+            "initial_finalized": 17619670,
+            "committed_cost": 17619670
+        },
+        {
+            "id": 2,
+            "description": "Labours",
+            "tender_budget": 16000000,
+            "initial_finalized": 15000000,
+            "committed_cost": 14000000
+        },
+        {
+            "id": 3,
+            "description": "Equipments",
+            "tender_budget": 18000000,
+            "initial_finalized": 17000000,
+            "committed_cost": 16000000
+        },
+        {
+            "id": 4,
+            "description": "Materials",
+            "tender_budget": 19000000,
+            "initial_finalized": 16000000,
+            "committed_cost": 15000000
+        }
+    ],
+    "expenses": [
+        {
+            "id": 1,
+            "month": "2026-12",
+            "category_id": 1,
+            "amount": 0.0
+        }
+    ],
+    "forecasts": []
+}

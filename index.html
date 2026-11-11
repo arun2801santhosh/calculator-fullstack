@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cost Control System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div>
+        <h1>Project Cost Control System</h1>
+        <p>Construction Project Budget & Forecast Monitoring</p>
+    </div>
+    <button id="exportPdfBtn">Export PDF</button>
+</header>
+
+<main class="container">
+
+    <section class="panel">
+        <h2>Project Information</h2>
+
+        <div class="form-grid">
+            <div>
+                <label>Project Name</label>
+                <input id="projectName" type="text">
+            </div>
+
+            <div>
+                <label>Project Code</label>
+                <input id="projectCode" type="text">
+            </div>
+
+            <div>
+                <label>Main Contractor Name</label>
+                <input id="contractor" type="text">
+            </div>
+
+            <div>
+                <label>Report Month</label>
+                <select id="reportMonth"></select>
+            </div>
+
+            <div>
+                <label>Project Start Month</label>
+                <input id="startMonth" type="month" value="2026-12">
+            </div>
+
+            <div>
+                <label>Project Duration (Months)</label>
+                <input id="duration" type="number" value="20" min="1">
+            </div>
+        </div>
+
+        <button id="saveProjectBtn">Save Project Information</button>
+    </section>
+
+    <section class="summary-grid">
+        <div class="summary-card">
+            <span>Tender Budget</span>
+            <h2 id="tenderTotal">AED 0.00</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Initial Finalized Amount</span>
+            <h2 id="finalTotal">AED 0.00</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Committed Cost</span>
+            <h2 id="committedTotal">AED 0.00</h2>
+        </div>
+
+        <div class="summary-card">
+            <span>Total Forecast Cost</span>
+            <h2 id="forecastTotal">AED 0.00</h2>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Project Cost Report</h2>
+        <p class="info">
+            Original budget values are protected. Only monthly actual costs
+            and future forecasts can be edited.
+        </p>
+
+        <div class="table-container">
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Description</th>
+                        <th>Tender Budget (AED)</th>
+                        <th>Initial Finalized (AED)</th>
+                        <th>Committed Cost (AED)</th>
+                        <th>Previous Month Cost (AED)</th>
+                        <th>Current Month Cost (AED)</th>
+                        <th>Remaining Forecast (AED)</th>
+                        <th>Total Forecast Cost (AED)</th>
+                        <th>Overrun / Saving (AED)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="reportBody"></tbody>
+                <tfoot id="reportFoot"></tfoot>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Monthly Cost Entry</h2>
+
+        <div class="form-grid">
+            <div>
+                <label>Cost Month</label>
+                <select id="entryMonth"></select>
+            </div>
+
+            <div>
+                <label>Description</label>
+                <select id="entryCategory"></select>
+            </div>
+
+            <div>
+                <label>Actual Cost (AED)</label>
+                <input id="actualAmount" type="number" min="0" step="0.01">
+            </div>
+        </div>
+
+        <button id="addCostBtn">Save Monthly Cost</button>
+
+        <h3>Monthly Cost Records</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Description</th>
+                        <th>Actual Cost (AED)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Remaining Month Forecast Entry</h2>
+
+        <div class="form-grid">
+            <div>
+                <label>Forecast Month</label>
+                <select id="forecastMonth"></select>
+            </div>
+
+            <div>
+                <label>Description</label>
+                <select id="forecastCategory"></select>
+            </div>
+
+            <div>
+                <label>Forecast Amount (AED)</label>
+                <input id="forecastAmount" type="number" min="0" step="0.01">
+            </div>
+        </div>
+
+        <button id="saveForecastBtn">Save Monthly Forecast</button>
+    </section>
+
+    <section class="panel">
+        <h2>Cost Analysis Graph</h2>
+        <div class="chart-grid">
+            <div>
+                <h3>Budget vs Forecast</h3>
+                <canvas id="costChart"></canvas>
+            </div>
+            <div>
+                <h3>Category Forecast</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
